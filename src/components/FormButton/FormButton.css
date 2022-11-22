@@ -1,0 +1,21 @@
+
+.form-button {
+  padding: 1rem;
+  border: none;
+  border-radius: .7rem;
+  background-color: blue;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.form-button:hover {
+  filter: brightness(90%);
+}
+
+.form-button:focus {
+  filter: brightness(80%);
+}

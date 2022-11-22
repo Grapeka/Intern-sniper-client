@@ -1,0 +1,15 @@
+
+.radio-card {
+  display: flex;
+  gap: .5rem;
+  padding: 1.5rem;
+  width: 100%;
+  border: 2px solid gainsboro;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.radio-card input {
+  cursor: pointer;
+}

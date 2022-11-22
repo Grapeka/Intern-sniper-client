@@ -1,0 +1,28 @@
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-input.width-small {
+  width: 25%;
+}
+
+.form-input label {
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 1rem;
+}
+
+.form-input input{
+  padding: 1rem;
+  border: none;
+  border-radius: .5rem;
+  outline: 2px solid gainsboro;
+  transition: all 0.2s ease-out;
+}
+
+.form-input input:focus{
+  outline: 2px solid blue;
+}

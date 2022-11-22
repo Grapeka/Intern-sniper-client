@@ -1,0 +1,99 @@
+.register-container {
+  display: flex;
+  padding: 1rem;
+  margin: auto;
+  gap: 1rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+.radio-container {
+  display: flex;
+  margin-top: .5rem;
+  gap: 2rem;
+}
+
+.register-container .leftside {
+  background: linear-gradient(0deg, rgba(87,23,230,1) 0%, rgba(74,53,255,1) 100%);
+  position: fixed;
+  border-radius: 1rem;
+  width: 40%;
+  height: 97%;
+  padding: 5rem; 
+}
+
+.register-container .leftside .logo {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+
+.register-container .leftside .major-phase {
+  color: white;
+  line-break: auto;
+  font-weight: bold;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.register-container .leftside .minor-phase {
+  color: gainsboro;
+  line-break: auto;
+  font-weight: lighter;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.register-container .leftside .suggest-card {
+  color: white;
+  line-break: auto;
+  font-weight: lighter;
+  font-size: 1.5rem;
+  height: 30%;
+  line-height: 1;
+  background-color: rgba(0,0,0,0.36);
+  padding: 2rem;
+  margin-top: 10rem;
+  border-radius: 1rem;
+}
+
+
+.register-container .rightside {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin-left: 40%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 13%;
+  padding-right: 13%;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 1rem;
+}
+
+.student-form-name {
+  display: flex;
+  gap: 1rem;
+}
+
+.student-form-university {
+  display: flex;
+  gap: 1rem;
+}
+
+.register-form .password-field {
+  display: flex;
+  gap: 1rem;
+}
+
+.register-form .company-form-info {
+  display: flex;
+  gap: 1rem;
+}

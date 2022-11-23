@@ -1,18 +1,26 @@
 import React from "react";
 
 import User from "../../types/User";
-
-import styles from "./index.module.scss";
+import classes from "./index.module.scss";
+import Menu from "./Menu";
 
 type Props = {
   user: User;
 };
 
-function Sidebar(Props: Props) {
-  if (Props.user) {
-    return <div className={styles.container}></div>;
+function Sidebar(props: Props) {
+  if (props.user) {
+    return (
+      <div className={classes.container}>
+        <Menu user={props.user} />
+      </div>
+    );
   }
-  return <div className={styles.container}>No user receive</div>;
+  return (
+    <div className={classes.container}>
+      <Menu user={props.user} />
+    </div>
+  );
 }
 
 export default Sidebar;

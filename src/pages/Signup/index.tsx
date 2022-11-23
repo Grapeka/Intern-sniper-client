@@ -1,20 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import FormHeader from "../../components/FormHeader";
 import FormInput from "../../components/FormInput";
 import FormButton from "../../components/FormButton";
 import RadioCard from "../../components/RadioCard";
 import { FormLabel } from "@mui/material";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Signup.css'
 import useRefAsState from "../../hooks/useRefAsState";
+import StudentForm from "../../components/StudentForm";
+import CompanyForm from "../../components/CompanyForm";
 
 interface SignupProps {
-  setSelectedRole: React.Dispatch<React.SetStateAction<"" | "Student" | "Company">>
-}
-
-interface MediaLink {
-  type: string,
-  url: string
+  setSelectedRole: (input: string) => void
 }
 
 function SignupAs(props: SignupProps) {
@@ -30,131 +27,62 @@ function SignupAs(props: SignupProps) {
 }
 
 function Login() {
-  const [selectedRole, setSelectedRole] = useState<'' | 'Student' | 'Company'>('')
+  const [selectedRole, setSelectedRole] = useRefAsState()
   const [email, setEmail] = useRefAsState()
   const [password, setPassword] = useRefAsState()
   const [confirmPassword, setConfirmPassword] = useRefAsState()
-  const [firstName, setFirstName] = useRefAsState()
-  const [lastName, setLastName] = useRefAsState()
-  const [university, setUniversity] = useRefAsState()
-  const [studyingYear, setStudyingYear] = useRefAsState()
-  const [interestedField, setInterestedField] = useRefAsState()
-  const [companyName, setCompanyName] = useRefAsState()
-  const [phoneNumber, setPhoneNumber] = useRefAsState()
-  const [location, setLocation] = useRefAsState()
-  const [linkin, setLinkin] = useRefAsState()
-  const [github, setGithub] = useRefAsState()
-  const [facebook, setFacebook] = useRefAsState()
-  const navigate = useNavigate()
+  const [step, setStep] = useState(1)
+  const [error, setError] = useState()
 
-  function MediaLinks() {
-    return (
-      <>
-        <FormInput setRef={setLinkin} title="Linkedin" placeholder="e.g. https://gr.linkedin.com/in/example" variant="outlined" type="text" ></FormInput>
-        <FormInput setRef={setGithub} title="Github" placeholder="e.g. https://github.com/example" variant="outlined" type="text" ></FormInput>
-        <FormInput setRef={setFacebook} title="Facebook" placeholder="e.g. https://www.facebook.com/example" variant="outlined" type="text" ></FormInput>
-      </>
-    )
-  }
-
-  function StudentForm() {
-    return (
-      <>
-        <div className="student-form-name">
-          <FormInput setRef={setFirstName} title="First Name" placeholder="Enter your first name..." variant="outlined" type="text" required={true}></FormInput>
-          <FormInput setRef={setLastName} title="Last Name" placeholder="Enter your last name..." variant="outlined" type="text" required={true}></FormInput>
-        </div>
-        <div className="student-form-university">
-          <FormInput setRef={setUniversity} title="University" placeholder="Enter your university here. e.g. Kasetsart, ..." variant="outlined" type="text" required={true}></FormInput>
-          <FormInput setRef={setStudyingYear} title="Studying Year" widthSize="width-small" variant="outlined" placeholder="1-12" type="number" min={1} max={12} required={true}></FormInput>
-        </div>
-        <FormInput setRef={setInterestedField} title="Interest Fields" placeholder="e.g. software engineer, data science, photographer" variant="outlined" type="text" />
-        <MediaLinks />
-      </>
-    )
-  }
-
-  function CompanyForm() {
-    return (
-      <>
-        <div className="company-form-info">
-          <FormInput setRef={setCompanyName} title="Company Name" required={true} placeholder="Enter your company name here" variant="outlined" type="text"></FormInput>
-          <FormInput setRef={setPhoneNumber} title="Phone" required={true} placeholder="Enter your phone number here" variant="outlined" type="text"></FormInput>
-        </div>
-        <FormInput setRef={setLocation} title="Location" required={true} placeholder="e.g. Bangkok, Thailand" variant="outlined" type="text" />
-        <MediaLinks />
-      </>
-    )
-  }
-
-  async function onSubmit(e: React.SyntheticEvent) {
+  async function preSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
-    
-    switch (selectedRole) {
-      case 'Student': {
-        const requestBody = {
-          email: email.current,
-          password: password.current,
-          confirmPassword: confirmPassword.current,
-          firstName: firstName.current,
-          lastName: lastName.current,
-          university: university.current,
-          studyingYear: studyingYear.current,
-          interestedField: interestedField.current.split(','),
-          mediaLinks: [] as MediaLink[]
-        }
-        if(linkin.current) requestBody.mediaLinks.push({ "type": "Linkedin", "url": linkin.current })
-        if(github.current) requestBody.mediaLinks.push({ "type": "Github", "url": github.current })
-        if(facebook.current) requestBody.mediaLinks.push({ "type": "Facebook", "url": facebook.current })
-        console.log(JSON.stringify(requestBody))
 
-        fetch('http://localhost:8000/auth/register/student', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify(requestBody)
-        })
-          .then(res => {
-            if(res.ok) {
-              navigate('/login')
-            }
-          })
-          .catch(err => {console.error(err)})
-
-        break
-      }
-      case 'Company': {
-        const requestBody = {
-          email: email.current,
-          password: password.current,
-          confirmPassword: confirmPassword.current,
-          companyName: companyName.current,
-          phoneNumber: phoneNumber.current,
-          location: location.current,
-          mediaLinks: [] as MediaLink[]
-        }
-        if(linkin.current) requestBody.mediaLinks.push({ "type": "Linkedin", "url": linkin.current })
-        if(github.current) requestBody.mediaLinks.push({ "type": "Github", "url": github.current })
-        if(facebook.current) requestBody.mediaLinks.push({ "type": "Facebook", "url": facebook.current })
-        console.log(requestBody)
-
-        fetch('http://localhost:8000/auth/register/company', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify(requestBody)
-        })
-          .then(res => {
-            if(res.ok) {
-              navigate('/login')
-            }
-          })
-          .catch(err => {console.error(err)})
-
-        break
-      }
-      default: {
-        return
-      }
+    const requestBody = {
+      email: email.current,
+      password: password.current,
+      confirmPassword: confirmPassword.current
     }
+
+    const res = await fetch(import.meta.env.VITE_BACKEND_URL + '/auth/register/pre', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    })
+    if(! res.ok) {
+      return res.json()
+        .then(res => setError(res.message))
+    }
+    setStep(2)
+  }
+
+
+  function FirstStep() {
+    return (
+      <form className="register-form" onSubmit={preSubmit}>
+        <SignupAs setSelectedRole={setSelectedRole} />
+        <FormInput setRef={setEmail} title="Email" placeholder="Enter your email here" variant="outlined" type="email" required={true} />
+        <div className="password-field">
+          <FormInput setRef={setPassword} title="Password" placeholder="Must at least 8 characters" minLength={8} variant="outlined" type="password" required={true} />
+          <FormInput setRef={setConfirmPassword} title="Confirm Password" placeholder="Must at least 8 characters" minLength={8} variant="outlined" type="password" required={true} />
+        </div>
+        <p className="error-message">{error}</p>
+        <FormButton title="Sign up" />
+      </form>
+    )
+  }
+
+  function SecondStep() {
+    return (
+      <>
+        {
+          selectedRole.current == 'Student' ?
+            <StudentForm email={email.current} password={password.current} confirmPassword={confirmPassword.current} /> :
+            <CompanyForm email={email.current} password={password.current} confirmPassword={confirmPassword.current} />
+        }
+      </>
+    )
   }
 
   return (
@@ -166,24 +94,25 @@ function Login() {
         <p className="suggest-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam ea autem, quo accusantium rerum praesentium aperiam. Error similique, maiores, tenetur ipsa facere minima eligendi sequi atque possimus</p>
       </div>
       <div className="rightside">
-        <form onSubmit={onSubmit} className="register-form">
+        <div className="register-form-container">
           <FormHeader title="Sign up" >
-            <p>Already have an account? <Link to="/login" style={{ textDecoration: 'none', color: 'blue' }}>Login</Link></p>
+            <div className="children-container">
+              <p>Already have an account? <Link to="/login" style={{ textDecoration: 'none', color: 'blue' }}>Login</Link></p>
+              {step == 2 &&
+                <div className="back-logo" onClick={() => setStep(1)}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-left-square" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                  </svg>
+                  BACK
+                </div>
+              }
+            </div>
           </FormHeader>
-          <SignupAs setSelectedRole={setSelectedRole} />
-          <FormInput setRef={setEmail} title="Email" placeholder="Enter your email here" variant="outlined" type="email" required={true} />
-          <div className="password-field">
-            <FormInput setRef={setPassword} title="Password" placeholder="Must at least 8 characters" minLength={8} variant="outlined" type="password" required={true} />
-            <FormInput setRef={setConfirmPassword} title="Confirm Password" placeholder="Must at least 8 characters" minLength={8} variant="outlined" type="password" required={true} />
-          </div>
-          {selectedRole == '' ?
-            <></> :
-            selectedRole == 'Student' ?
-              <StudentForm /> :
-              <CompanyForm />
+          {step == 1 ?
+          <FirstStep /> :
+          <SecondStep />
           }
-          <FormButton title="Sign up" />
-        </form>
+        </div>
       </div>
     </div>
   );

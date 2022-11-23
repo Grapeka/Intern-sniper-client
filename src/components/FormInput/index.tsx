@@ -11,6 +11,7 @@ interface Props {
   min?: number,
   max?: number,
   options?: string[],
+  value?: string,
   minLength?: number,
   variant: "standard" | "filled" | "outlined" | undefined,
   widthSize?: 'width-small' | 'width-normal' | 'width-large',
@@ -36,7 +37,7 @@ const FormInput = (props: Props) => {
   return (
     <div className={"form-input " + props?.widthSize}>
       <label>{props.title}{props.required && '*'}</label>
-      <input type={props.type} placeholder={props.placeholder} min={props.min} max={props.max} minLength={props.minLength} required={props.required} onChange={(e) => {
+      <input type={props.type} value={props.value} placeholder={props.placeholder} min={props.min} max={props.max} minLength={props.minLength} required={props.required} onChange={(e) => {
         if(props.setRef != null) props.setRef(e.target.value)
       }
       } />

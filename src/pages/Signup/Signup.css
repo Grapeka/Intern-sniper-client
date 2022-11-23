@@ -59,16 +59,37 @@
   border-radius: 1rem;
 }
 
-
 .register-container .rightside {
   display: flex;
   justify-content: center;
   width: 60%;
   margin-left: 40%;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   padding-left: 13%;
   padding-right: 13%;
+}
+
+.register-container .rightside .back-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: .3rem;
+  color: gainsboro;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.register-container .rightside .back-logo:hover {
+  color: black;
+}
+
+.register-form-container {
+  width: 100%;
+  position: relative;
 }
 
 .register-form {
@@ -78,22 +99,12 @@
   row-gap: 1rem;
 }
 
-.student-form-name {
-  display: flex;
-  gap: 1rem;
-}
+.register-form .error-message {
+  color: red;
 
-.student-form-university {
-  display: flex;
-  gap: 1rem;
 }
 
 .register-form .password-field {
-  display: flex;
-  gap: 1rem;
-}
-
-.register-form .company-form-info {
   display: flex;
   gap: 1rem;
 }

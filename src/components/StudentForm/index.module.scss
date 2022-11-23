@@ -1,0 +1,16 @@
+.studentRegisterForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 1rem;
+
+  .fullname {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .university {
+    display: flex;
+    gap: 1rem;
+  }
+}

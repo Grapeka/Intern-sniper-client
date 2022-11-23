@@ -2,7 +2,7 @@ import './RadioCard.css'
 
 interface Props {
   title: string,
-  setSelectedRole?: React.Dispatch<React.SetStateAction<"" | "Student" | "Company">>
+  setSelectedRole?: (input: string) => void
 }
 
 function RadioCard(props: Props) {
@@ -27,7 +27,7 @@ function RadioCard(props: Props) {
         radioCard.style.color = 'black'
       }
     })
-    if(props.setSelectedRole != null) props.setSelectedRole(props.title as '' | 'Student' | 'Company')
+    if(props.setSelectedRole != null) props.setSelectedRole(props.title)
   }
 
   return ( 

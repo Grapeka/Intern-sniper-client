@@ -8,7 +8,7 @@ interface Program {
   timeline: Timeline[];
   programPicture: String[];
   programWebsite: String;
-  favoriteStudents: String[] | null;
+  favoriteStudents: String[];
   relatedField: String[];
   programType: String;
 }

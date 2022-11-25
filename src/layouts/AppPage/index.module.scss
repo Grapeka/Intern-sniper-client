@@ -4,19 +4,24 @@
   background-color: #eaeef7;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  // overflow: scroll;
+  // z-index: 1000;
 
   .row {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
+    position: relative;
 
     .content {
-      // background-color: blue;
+      // margin-top: 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
+      height: 100vh;
     }
   }
 }

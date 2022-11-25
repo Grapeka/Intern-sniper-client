@@ -1,0 +1,56 @@
+.programCard {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px;
+  width: 600px;
+  height: 400px;
+  background-color: #ffff;
+  border-radius: 20px;
+
+  .topSection {
+    position: relative;
+    margin-left: 40px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 88%;
+
+    .title {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #243250;
+    }
+
+    .buttonBox {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .middleSection {
+    width: 75%;
+    margin-top: 20px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    flex-wrap: 1;
+    flex-grow: 1;
+    gap: 3px;
+    .description {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      .descriptionItem {
+        color: #a3adc1;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  .bottomSection {
+  }
+}

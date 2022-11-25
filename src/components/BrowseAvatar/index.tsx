@@ -22,7 +22,7 @@ function BrowseAvatar(props: Props) {
 
   return (
     <div className={classes.browseImage}>
-      <Avatar imageName={previewImage} size="xxl" border={false} />
+      <Avatar imageUrl={previewImage} size="xxl" border={false} />
       <div className={classes.container}>
         <label htmlFor="file" className={classes.browseButton}>Browse</label>
         <input id="file" type="file" className={classes.none} onChange={changeImage} />

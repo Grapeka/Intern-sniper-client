@@ -3,12 +3,14 @@ import FormInput from "../../components/FormInput";
 import FormButton from "../../components/FormButton";
 import { Link, useNavigate } from 'react-router-dom'
 import './Login.css'
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/authProvider";
 
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+  const context = useContext(AuthContext)
 
   function onSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
@@ -26,6 +28,9 @@ function Login() {
       .then(res => {
         console.log(res.ok)
         if(res.ok) {
+          res.json().then(data => {
+            context?.setToken(data.token)
+          })
           navigate('/')
         }
       })

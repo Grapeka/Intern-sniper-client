@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router"
 import useRefAsState from "../../hooks/useRefAsState"
-import { mediaLinkType } from "../../interfaces/enum"
 import MediaLink from "../../interfaces/MediaLink"
 import { uploadImage } from "../../utils/image"
 import BrowseAvatar from "../BrowseAvatar"
@@ -54,10 +53,10 @@ function CompanyForm(props: Props) {
       mediaLinks: [] as MediaLink[],
       profilePicture: imageName
     }
-    if (linkedin.current) requestBody.mediaLinks.push({ type: mediaLinkType.LINKEDIN, url: linkedin.current })
-    if (github.current) requestBody.mediaLinks.push({ type: mediaLinkType.GITHUB, url: github.current })
-    if (facebook.current) requestBody.mediaLinks.push({ type: mediaLinkType.FACEBOOK, url: facebook.current })
-    if (personalWeb.current) requestBody.mediaLinks.push({ type: mediaLinkType.PERSONALWEB, url: personalWeb.current })
+    if (linkedin.current) requestBody.mediaLinks.push({ type: '0', url: linkedin.current })
+    if (github.current) requestBody.mediaLinks.push({ type: '1', url: github.current })
+    if (facebook.current) requestBody.mediaLinks.push({ type: '2', url: facebook.current })
+    if (personalWeb.current) requestBody.mediaLinks.push({ type: '3', url: personalWeb.current })
     console.log(requestBody)
 
     fetch(import.meta.env.VITE_BACKEND_URL + '/auth/register/company', {

@@ -1,7 +1,7 @@
 import classes from './index.module.scss'
 
 interface Props {
-  imageName: string
+  imageUrl: string | null
   size: 'sm' | 'xxl'
   border: boolean
 }
@@ -15,8 +15,10 @@ function Avatar(props: Props) {
       <div className={classes.imgBox}>
         <img
           className={classes.img}
-          src={props.imageName == '' ? '/default_image.jpg' : props.imageName}
-          alt=""
+          src={props.imageUrl == '' || props.imageUrl == null 
+            ? '/default_image.jpg' 
+            :  props.imageUrl}
+          alt="Avatar"
         />
       </div>
     </div>

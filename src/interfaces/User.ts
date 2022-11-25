@@ -1,13 +1,13 @@
 import MediaLink from "./MediaLink";
 
 interface User {
-  userId: String | null;
+  userId: string | null;
   mediaLink: MediaLink[] | null;
-  role: String;
-  email: String;
-  password: String;
-  salt: String | null;
-  profilePicture: String | null;
+  role: string;
+  email: string;
+  password: string;
+  salt: string | null;
+  profilePicture: string | null;
 }
 
 export default User;

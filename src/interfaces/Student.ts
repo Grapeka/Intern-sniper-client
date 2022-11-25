@@ -1,12 +1,12 @@
 import User from "./User";
 
 interface Student extends User {
-  firstName: String;
-  lastName: String;
+  firstName: string;
+  lastName: string;
   studyingYear: number;
-  interestedField: String[];
-  favoriteProgram: String[] | null;
-  university: String;
+  interestedField: string[];
+  favoriteProgram: string[] | null;
+  university: string;
 }
 
 export default Student;

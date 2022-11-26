@@ -6,19 +6,23 @@ import Validate from "./pages/Validate";
 import Home from "./pages/Home";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
+import useAuth from "./hooks/useAuth";
+import { AuthContext } from "./providers/authProvider";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [auth, token, setToken] = useAuth();
+  const [user, setUser] = useState(null);
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/validate" element={<Validate />} />
-      </Routes>
+      <AuthContext.Provider value={{ auth, token, setToken }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile/:id" element={<Profile user={user} />} />
+        </Routes>
+      </AuthContext.Provider>
     </div>
   );
 }

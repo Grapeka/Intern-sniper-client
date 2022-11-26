@@ -1,0 +1,22 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  row-gap: 1rem;
+
+  .label {
+    font-weight: bold;
+    color: gray;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .twoColumn {
+    display: flex;
+    gap: 1rem;
+  }
+
+}

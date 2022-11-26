@@ -20,7 +20,7 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>{student.firstName}</div>
-            <Avatar size="sm" border imageName="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
+            <Avatar size="sm" border imageUrl="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
           </div>
         );
       }
@@ -29,7 +29,7 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>{company.companyName}</div>
-            <Avatar size="sm" border imageName="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
+            <Avatar size="sm" border imageUrl="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
           </div>
         );
       }
@@ -38,7 +38,7 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>{director.firstName}</div>
-            <Avatar size="sm" border imageName="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
+            <Avatar size="sm" border imageUrl="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
           </div>
         );
       }
@@ -46,7 +46,7 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>Visitor</div>
-            <Avatar size="sm" border imageName="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-5neknqovdb6hesko5h0c8jbr36-20180130131031.Medi.jpeg" />
+            <Avatar size="sm" border imageUrl="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-5neknqovdb6hesko5h0c8jbr36-20180130131031.Medi.jpeg" />
           </div>
         );
       }
@@ -55,7 +55,7 @@ function UserTitle(props: Props) {
   return (
     <div className={classes.container}>
       <div>Visitor</div>
-      <Avatar size="sm" border imageName="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-5neknqovdb6hesko5h0c8jbr36-20180130131031.Medi.jpeg" />
+      <Avatar size="sm" border imageUrl="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-5neknqovdb6hesko5h0c8jbr36-20180130131031.Medi.jpeg" />
     </div>
   );
 }

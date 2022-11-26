@@ -12,32 +12,19 @@ interface Props {
   max?: number,
   options?: string[],
   value?: string,
+  disable?: boolean,
   minLength?: number,
   variant: "standard" | "filled" | "outlined" | undefined,
   widthSize?: 'width-small' | 'width-normal' | 'width-large',
-  setRef: (value: string) => void
+  setRef?: (value: string) => void
 }
 
 const FormInput = (props: Props) => {
-
-  if(props.type == 'autocomplete' && props.options != null) 
-    return (
-      <div className="form-input">
-        <label>{props.title}</label>
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={props.options}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </div>
-    )
   
   return (
     <div className={"form-input " + props?.widthSize}>
       <label>{props.title}{props.required && '*'}</label>
-      <input type={props.type} value={props.value} placeholder={props.placeholder} min={props.min} max={props.max} minLength={props.minLength} required={props.required} onChange={(e) => {
+      <input type={props.type} disabled={props.disable} defaultValue={props.value} placeholder={props.placeholder} min={props.min} max={props.max} minLength={props.minLength} required={props.required} onChange={(e) => {
         if(props.setRef != null) props.setRef(e.target.value)
       }
       } />

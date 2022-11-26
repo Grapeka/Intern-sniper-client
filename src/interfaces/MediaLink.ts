@@ -1,8 +1,7 @@
-import { mediaLinkType } from "./enum";
 
 interface MediaLink {
   url: string;
-  type: mediaLinkType;
+  type: string;
 }
 
 export default MediaLink;

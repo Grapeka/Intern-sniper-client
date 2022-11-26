@@ -2,10 +2,11 @@ import Location from "./Location";
 import User from "./User";
 
 interface Company extends User {
-  companyName: String;
-  issuedProgram: String[] | null;
-  phoneNumber: String;
-  location: Location | null;
+  companyName: string;
+  issuedProgram: string[] | null;
+  phoneNumber: string;
+  province: string
+  country: string
   validateStatus: boolean;
 }
 

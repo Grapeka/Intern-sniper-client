@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../providers/authProvider";
 
 import AppPage from "../../layouts/AppPage";
 import User from "../../types/User";
@@ -139,6 +140,11 @@ type Props = {
 function Home() {
   const [user, setUser] = useState(null);
   const [programs, setPrograms] = useState(dummyProgram);
+  const context = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log(context);
+  });
 
   return (
     <AppPage user={user}>

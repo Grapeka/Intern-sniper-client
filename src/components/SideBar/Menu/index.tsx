@@ -9,6 +9,7 @@ import { HiOutlineLightningBolt } from "react-icons/hi";
 import { TbStar, TbDatabase } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
 import { BsBookmark, BsListCheck } from "react-icons/bs";
+import { MdOutlineCreateNewFolder } from "react-icons/md";
 
 const studentMenu = [
   { name: "Home", link: "/", icon: <FiHome /> },
@@ -21,6 +22,11 @@ const companyMenu = [
   { name: "Home", link: "/", icon: <FiHome /> },
   { name: "Most poppular", link: "/popular", icon: <HiOutlineLightningBolt /> },
   { name: "My program", link: "/myProgram", icon: <BsBookmark /> },
+  {
+    name: "Create program",
+    link: "/createProgram",
+    icon: <MdOutlineCreateNewFolder />,
+  },
   { name: "Profile", link: "/profile", icon: <FiUser /> },
 ];
 

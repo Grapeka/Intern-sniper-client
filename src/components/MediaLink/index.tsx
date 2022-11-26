@@ -10,10 +10,12 @@ interface Props {
 function MediaLink(props: Props) {
   return (
     <a href={props.url} className={classes.container}>
-      {props.type == 'linkedin' && <BsLinkedin size={32} />}
-      {props.type == 'github' && <BsGithub size={32} />}
-      {props.type == 'facebook' && <AiFillFacebook size={32} />}
-      {props.type == 'personalWeb' && <AiOutlineLink size={32} />}
+      <div>
+        {props.type == 'linkedin' && <BsLinkedin size={32} />}
+        {props.type == 'github' && <BsGithub size={32} />}
+        {props.type == 'facebook' && <AiFillFacebook size={32} />}
+        {props.type == 'personalWeb' && <AiOutlineLink size={32} />}
+      </div>
       {props.url}
     </a>
   )

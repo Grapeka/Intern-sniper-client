@@ -33,7 +33,7 @@
   color: white;
   line-break: auto;
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
   line-height: 1;
   margin-bottom: 1rem;
 }
@@ -101,7 +101,6 @@
 
 .register-form .error-message {
   color: red;
-
 }
 
 .register-form .password-field {

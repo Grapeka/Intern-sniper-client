@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile/:id" element={<Profile user={user} />} />
+          <Route path="/profile" element={<Profile user={user} />} />
         </Routes>
       </AuthContext.Provider>
     </div>

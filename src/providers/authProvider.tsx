@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 export const AuthContext = createContext<{
   auth: {
+    id: string | null;
     email: string | null;
     profilePicture: string | null;
     role: string | null;

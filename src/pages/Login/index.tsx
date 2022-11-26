@@ -9,6 +9,7 @@ import { AuthContext } from "../../providers/authProvider";
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState()
   const navigate = useNavigate()
   const context = useContext(AuthContext)
 
@@ -33,6 +34,7 @@ function Login() {
           })
           navigate('/')
         }
+        res.json().then(data => setError(data.message))
       })
       .catch(err => { console.error(err) })
 
@@ -45,7 +47,6 @@ function Login() {
         <p className="logo">Lorem</p>
         <p className="major-phase">Start your journey with us.</p>
         <p className="minor-phase">Discover the world's best community of freelancers and business owners.</p>
-        <p className="suggest-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam ea autem, quo accusantium rerum praesentium aperiam. Error similique, maiores, tenetur ipsa facere minima eligendi sequi atque possimus</p>
       </div>
       <div className="rightside">
         <form onSubmit={onSubmit} className="login-form">
@@ -54,6 +55,7 @@ function Login() {
           </FormHeader>
           <FormInput setRef={setEmail} title="Email" description="Email" placeholder="user01@example.com" variant="outlined" type="email" required={true} />
           <FormInput setRef={setPassword} title="Password" minLength={8} description="Password" variant="outlined" type="password" required={true} />
+          <p className="error-message">{error}</p>
           <FormButton title="Log in" />
         </form>
       </div>

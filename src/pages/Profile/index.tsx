@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from '../../providers/authProvider'
 import Student from "../../interfaces/Student";
 import Company from "../../interfaces/Company";
 import classes from './index.module.scss'
@@ -15,12 +15,10 @@ interface Props {
 
 interface studentProps {
   student: Student
-  userId: string
 }
 
 interface companyProps {
   company: Company
-  userId: string
 }
 
 function StudentProfile(props: studentProps) {
@@ -111,15 +109,14 @@ function CompanyProfile(props: companyProps) {
 function Profile(props: Props) {
   const [profile, setProfile] = useState<User>()
   const [loading, setLoading] = useState(true)
-  const { id } = useParams()
+  const context = useContext(AuthContext)
 
-  if(id == null) return <></>
-  
   useEffect(() => {
-    fetch(import.meta.env.VITE_BACKEND_URL + `/users/${id}`, {
+    fetch(import.meta.env.VITE_BACKEND_URL + '/users/profile', {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + context?.token
       }
     })
       .then(res => res.json())
@@ -134,8 +131,8 @@ function Profile(props: Props) {
   return (
     <AppPage user={props.user}>
       {profile?.role == 'Student'
-        ? <StudentProfile student={profile as Student} userId={id} /> 
-        : <CompanyProfile company={profile as Company} userId={id} />
+        ? <StudentProfile student={profile as Student} /> 
+        : <CompanyProfile company={profile as Company} />
       }
     </AppPage>
   );

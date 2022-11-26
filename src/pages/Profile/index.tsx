@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from "react";
-import { AuthContext } from '../../providers/authProvider'
+import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
 import Student from "../../interfaces/Student";
 import Company from "../../interfaces/Company";
 import classes from './index.module.scss'
@@ -42,16 +42,16 @@ function StudentProfile(props: studentProps) {
         {props.student.mediaLink.map(link => {
           switch (link.type) {
             case '0': {
-              return <MediaLink type='linkedin' url={link.url} />
+              return <MediaLink key={0} type='linkedin' url={link.url} />
             }
             case '1': {
-              return <MediaLink type='github' url={link.url} />
+              return <MediaLink key={1} type='github' url={link.url} />
             }
             case '2': {
-              return <MediaLink type='facebook' url={link.url} />
+              return <MediaLink key={2} type='facebook' url={link.url} />
             }
             case '3': {
-              return <MediaLink type='personalWeb' url={link.url} />
+              return <MediaLink key={3} type='personalWeb' url={link.url} />
             }
             default: {
               return <></>
@@ -109,14 +109,13 @@ function CompanyProfile(props: companyProps) {
 function Profile(props: Props) {
   const [profile, setProfile] = useState<User>()
   const [loading, setLoading] = useState(true)
-  const context = useContext(AuthContext)
+  const { id } = useParams()
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_BACKEND_URL + '/users/profile', {
+    fetch(import.meta.env.VITE_BACKEND_URL + '/users/' + id, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + context?.token
       }
     })
       .then(res => res.json())

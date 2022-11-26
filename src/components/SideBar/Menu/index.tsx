@@ -38,7 +38,7 @@ const directorMenu = [
 ];
 
 const visitorMenu = [
-  { name: "Home", link: "/", icon: <FiHome /> },
+  { name: "55555", link: "/", icon: <FiHome /> },
   { name: "Most poppular", link: "/popular", icon: <HiOutlineLightningBolt /> },
   { name: "Favorite", link: "/login", icon: <TbStar /> },
   { name: "Profile", link: "/login", icon: <FiUser /> },
@@ -51,65 +51,74 @@ type Props = {
 function Menu(props: Props) {
   const [focusIndex, setFocusIndex] = useState("Home");
 
-  if (props.user) {
+  console.log("props.user", props.user);
+
+  if (props.user !== null) {
     switch (props.user.role) {
       case "Student": {
-        <div className={classes.container}>
-          {studentMenu.map((item, index) => {
-            return (
-              <MenuItem
-                item={item}
-                key={index}
-                focusIndex={focusIndex}
-                setFocusIndex={setFocusIndex}
-              />
-            );
-          })}
-        </div>;
+        return (
+          <div className={classes.container}>
+            {studentMenu.map((item, index) => {
+              return (
+                <MenuItem
+                  item={item}
+                  key={index}
+                  focusIndex={focusIndex}
+                  setFocusIndex={setFocusIndex}
+                />
+              );
+            })}
+          </div>
+        );
       }
       case "Company": {
-        <div className={classes.container}>
-          {companyMenu.map((item, index) => {
-            return (
-              <MenuItem
-                item={item}
-                key={index}
-                focusIndex={focusIndex}
-                setFocusIndex={setFocusIndex}
-              />
-            );
-          })}
-          ;
-        </div>;
+        return (
+          <div className={classes.container}>
+            {companyMenu.map((item, index) => {
+              return (
+                <MenuItem
+                  item={item}
+                  key={index}
+                  focusIndex={focusIndex}
+                  setFocusIndex={setFocusIndex}
+                />
+              );
+            })}
+          </div>
+        );
       }
       case "Director": {
-        <div className={classes.container}>
-          {directorMenu.map((item, index) => {
-            return (
-              <MenuItem
-                item={item}
-                key={index}
-                focusIndex={focusIndex}
-                setFocusIndex={setFocusIndex}
-              />
-            );
-          })}
-        </div>;
+        return (
+          <div className={classes.container}>
+            {directorMenu.map((item, index) => {
+              return (
+                <MenuItem
+                  item={item}
+                  key={index}
+                  focusIndex={focusIndex}
+                  setFocusIndex={setFocusIndex}
+                />
+              );
+            })}
+          </div>
+        );
       }
 
       default: {
-        <div className={classes.container}>
-          {visitorMenu.map((item, index) => {
-            return (
-              <MenuItem
-                item={item}
-                key={index}
-                focusIndex={focusIndex}
-                setFocusIndex={setFocusIndex}
-              />
-            );
-          })}
-        </div>;
+        return (
+          <div className={classes.container}>
+            {visitorMenu.map((item, index) => {
+              return (
+                <MenuItem
+                  item={item}
+                  key={index}
+                  focusIndex={focusIndex}
+                  setFocusIndex={setFocusIndex}
+                />
+              );
+            })}
+          </div>
+        );
       }
     }
   }

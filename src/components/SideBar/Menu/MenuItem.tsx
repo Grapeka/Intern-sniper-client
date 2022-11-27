@@ -1,5 +1,4 @@
 import { ClassNames } from "@emotion/react";
-import React, { useState } from "react";
 import classes from "./menuItem.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -11,8 +10,8 @@ interface item {
 
 type Props = {
   item: item;
-  focusIndex: any;
-  setFocusIndex: any;
+  focusIndex: string;
+  setFocusIndex: React.Dispatch<React.SetStateAction<string>>;
 };
 
 function MenuItem(props: Props) {
@@ -27,8 +26,15 @@ function MenuItem(props: Props) {
       }
       onClick={() => {
         props.setFocusIndex(props.item.name);
+
+        console.log(
+          "props.item.name",
+          props.item.name,
+          "props.focusIndex",
+          props.focusIndex
+        );
+
         navigate(props.item.link);
-        console.log(props.item.link);
       }}
     >
       <div className={classes.icon}>{props.item.icon}</div>

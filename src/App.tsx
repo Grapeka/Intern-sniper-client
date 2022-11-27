@@ -3,6 +3,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Validate from "./pages/Validate";
+import Favorite from "./pages/Favorite";
+import Popular from "./pages/Popular";
 import Home from "./pages/Home";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -21,6 +23,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile/:id" element={<Profile user={auth} />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/popular" element={<Popular />} />
         </Routes>
       </AuthContext.Provider>
     </div>

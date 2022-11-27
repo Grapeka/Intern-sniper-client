@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import classes from "./index.module.scss";
 import MenuItem from "./MenuItem";
@@ -13,14 +13,14 @@ import { MdOutlineCreateNewFolder } from "react-icons/md";
 
 const studentMenu = [
   { name: "Home", link: "/", icon: <FiHome /> },
-  { name: "Most poppular", link: "/popular", icon: <HiOutlineLightningBolt /> },
+  { name: "Most popular", link: "/popular", icon: <HiOutlineLightningBolt /> },
   { name: "Favorite", link: "/favorite", icon: <TbStar /> },
   { name: "Profile", link: "/profile", icon: <FiUser /> },
 ];
 
 const companyMenu = [
   { name: "Home", link: "/", icon: <FiHome /> },
-  { name: "Most poppular", link: "/popular", icon: <HiOutlineLightningBolt /> },
+  { name: "Most popular", link: "/popular", icon: <HiOutlineLightningBolt /> },
   { name: "My program", link: "/myProgram", icon: <BsBookmark /> },
   {
     name: "Create program",
@@ -32,14 +32,14 @@ const companyMenu = [
 
 const directorMenu = [
   { name: "Home", link: "/", icon: <FiHome /> },
-  { name: "Most poppular", link: "/popular", icon: <HiOutlineLightningBolt /> },
+  { name: "Most popular", link: "/popular", icon: <HiOutlineLightningBolt /> },
   { name: "Validate", link: "/validate", icon: <BsListCheck /> },
   { name: "Transaction", link: "/transaction", icon: <TbDatabase /> },
 ];
 
 const visitorMenu = [
-  { name: "55555", link: "/", icon: <FiHome /> },
-  { name: "Most poppular", link: "/popular", icon: <HiOutlineLightningBolt /> },
+  { name: "Home", link: "/", icon: <FiHome /> },
+  { name: "Most popular", link: "/popular", icon: <HiOutlineLightningBolt /> },
   { name: "Favorite", link: "/login", icon: <TbStar /> },
   { name: "Profile", link: "/login", icon: <FiUser /> },
 ];
@@ -50,8 +50,6 @@ type Props = {
 
 function Menu(props: Props) {
   const [focusIndex, setFocusIndex] = useState("Home");
-
-  console.log("props.user", props.user);
 
   if (props.user !== null) {
     switch (props.user.role) {

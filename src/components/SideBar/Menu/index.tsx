@@ -24,7 +24,7 @@ const companyMenu = [
   { name: "My program", link: "/myProgram", icon: <BsBookmark /> },
   {
     name: "Create program",
-    link: "/createProgram",
+    link: "/create-program",
     icon: <MdOutlineCreateNewFolder />,
   },
   { name: "Profile", link: "/profile", icon: <FiUser /> },

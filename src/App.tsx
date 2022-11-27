@@ -6,6 +6,7 @@ import Validate from "./pages/Validate";
 import Favorite from "./pages/Favorite";
 import Popular from "./pages/Popular";
 import Home from "./pages/Home";
+import CreateProgram from "./pages/CreateProgram";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import useAuth from "./hooks/useAuth";
@@ -25,6 +26,8 @@ function App() {
           <Route path="/profile/:id" element={<Profile user={auth} />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/popular" element={<Popular />} />
+          <Route path="/create-program" element={<CreateProgram />} />
+          <Route path="/validate" element={<Validate />} />
         </Routes>
       </AuthContext.Provider>
     </div>

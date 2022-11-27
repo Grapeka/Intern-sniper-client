@@ -1,21 +1,18 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-import { AuthContext } from "../../providers/authProvider";
+import React, { useState, useEffect, useContext } from "react";
 
+import { AuthContext } from "../../providers/authProvider";
 import AppPage from "../../layouts/AppPage";
-import User from "../../types/User";
 import ProgramType from "../../types/Program";
 import Program from "../../components/Program";
 import classes from "./index.module.scss";
 
-function Home() {
-  const [user, setUser] = useState(null);
-  const [programs, setPrograms] = useState([]);
-  const context = useContext(AuthContext);
+function Popular() {
+  const [programs, setPrograms] = useState<[ProgramType] | []>([]);
+
+  console.log("programs", programs);
 
   useEffect(() => {
-    console.log("context", context);
-
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/programs`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/programs/popular`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +20,6 @@ function Home() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("programs", data);
         setPrograms(data);
       });
   }, []);
@@ -39,4 +35,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Popular;

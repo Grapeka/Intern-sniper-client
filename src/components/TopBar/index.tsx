@@ -8,14 +8,10 @@ import classes from "./index.module.scss";
 import { FiMinusCircle } from "react-icons/fi";
 
 type Props = {
-  user: User;
+  user: any;
 };
 
 function TopBar(props: Props) {
-  if (props.user) {
-    return <div className={classes.container}>TopBar, hi user</div>;
-  }
-
   return (
     <div className={classes.container}>
       <div className={classes.content}>

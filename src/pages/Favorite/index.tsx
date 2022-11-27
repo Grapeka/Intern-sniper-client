@@ -1,24 +1,23 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-import { AuthContext } from "../../providers/authProvider";
+import React, { useState, useEffect, useContext } from "react";
 
+import { AuthContext } from "../../providers/authProvider";
 import AppPage from "../../layouts/AppPage";
-import User from "../../types/User";
 import ProgramType from "../../types/Program";
 import Program from "../../components/Program";
 import classes from "./index.module.scss";
 
-function Home() {
-  const [user, setUser] = useState(null);
-  const [programs, setPrograms] = useState([]);
+function Favorite() {
+  const [programs, setPrograms] = useState<[ProgramType] | []>([]);
   const context = useContext(AuthContext);
 
-  useEffect(() => {
-    console.log("context", context);
+  console.log("programs", programs);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/programs`, {
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/programs/favorited`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${context?.token}`,
       },
     })
       .then((res) => res.json())
@@ -39,4 +38,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Favorite;

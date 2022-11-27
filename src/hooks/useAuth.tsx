@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
+import User from '../types/User'
 
-function useAuth(): [{
-  id: string | null,
-  email: string | null;
-  profilePicture: string | null;
-  role: string | null;
-} | null, string | null, React.Dispatch<React.SetStateAction<string | null>>] {
+function useAuth(): [User | null, string | null, React.Dispatch<React.SetStateAction<string | null>>] {
 
   const getToken = () => {
     const token = sessionStorage.getItem('token')
     return token
   }
   
-  const [auth, setAuth] = useState<{
-    id: string | null;
-    email: string | null;
-    profilePicture: string | null;
-    role: string | null;
-} | null>(null)
+  const [auth, setAuth] = useState<User | null>(null)
   const [token, setToken] = useState(getToken())
 
   useEffect(() => {
@@ -46,12 +37,7 @@ function useAuth(): [{
           sessionStorage.setItem('email', data.email)
           sessionStorage.setItem('profilePicture', data.profilePicture)
           sessionStorage.setItem('role', data.role)
-          setAuth({
-            id: data.id,
-            email: data.email,
-            profilePicture: data.profilePicture,
-            role: data.role
-          })
+          setAuth(data)
         })
       })
       .catch(err => console.error(err))

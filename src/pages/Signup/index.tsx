@@ -91,7 +91,6 @@ function Login() {
         <p className="logo">Lorem</p>
         <p className="major-phase">Start your journey with us.</p>
         <p className="minor-phase">Discover the world's best community of freelancers and business owners.</p>
-        <p className="suggest-card">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam ea autem, quo accusantium rerum praesentium aperiam. Error similique, maiores, tenetur ipsa facere minima eligendi sequi atque possimus</p>
       </div>
       <div className="rightside">
         <div className="register-form-container">

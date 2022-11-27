@@ -6,7 +6,7 @@ import Student from "../../interfaces/Student";
 import Company from "../../interfaces/Company";
 import Director from "../../interfaces/Director";
 
-import Avatar from '../Avatar'
+import Avatar from "../Avatar";
 
 type Props = {
   user: User;
@@ -20,7 +20,13 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>{student.firstName}</div>
-            <Avatar size="sm" border imageUrl="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
+            <Avatar
+              size="sm"
+              border
+              imageUrl={`${import.meta.env.BASE_URL}/image/${
+                student.profilePicture
+              }`}
+            />
           </div>
         );
       }
@@ -29,7 +35,13 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>{company.companyName}</div>
-            <Avatar size="sm" border imageUrl="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
+            <Avatar
+              size="sm"
+              border
+              imageUrl={`${import.meta.env.BASE_URL}/image/${
+                company.profilePicture
+              }`}
+            />
           </div>
         );
       }
@@ -38,7 +50,11 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>{director.firstName}</div>
-            <Avatar size="sm" border imageUrl="https://cdn-icons-png.flaticon.com/512/188/188379.png" /> 
+            <Avatar
+              size="sm"
+              border
+              imageUrl={`${import.meta.env.BASE_URL}/image/director.png`}
+            />
           </div>
         );
       }
@@ -46,7 +62,11 @@ function UserTitle(props: Props) {
         return (
           <div className={classes.container}>
             <div>Visitor</div>
-            <Avatar size="sm" border imageUrl="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-5neknqovdb6hesko5h0c8jbr36-20180130131031.Medi.jpeg" />
+            <Avatar
+              size="sm"
+              border
+              imageUrl={`${import.meta.env.BASE_URL}/image/visitor.png`}
+            />
           </div>
         );
       }
@@ -55,7 +75,11 @@ function UserTitle(props: Props) {
   return (
     <div className={classes.container}>
       <div>Visitor</div>
-      <Avatar size="sm" border imageUrl="https://s3.ap-southeast-1.amazonaws.com/images.asianage.com/images/aa-Cover-5neknqovdb6hesko5h0c8jbr36-20180130131031.Medi.jpeg" />
+      <Avatar
+        size="sm"
+        border
+        imageUrl={`${import.meta.env.BASE_URL}/image/visitor.png`}
+      />
     </div>
   );
 }

@@ -2,9 +2,9 @@ import Company from "./Company";
 import Timeline from "./Timeline";
 
 interface Program {
-  programId: String | null;
+  _id: string | null;
   programName: String;
-  ownerOfProgram: Company;
+  ownerOfProgram: [Company];
   timeline: Timeline[];
   programPicture: String[];
   programWebsite: String;

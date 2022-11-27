@@ -6,7 +6,7 @@ import Buttun from "./Buttun";
 
 type Props = {
   program: Program;
-  setProgram: any;
+  setProgram: React.Dispatch<any>;
 };
 
 function ProgramCard(props: Props) {
@@ -21,10 +21,10 @@ function ProgramCard(props: Props) {
       <div className={classes.middleSection}>
         <div className={classes.description}>
           <span className={classes.descriptionItem}>
-            {`Company: ${props.program.ownerOfProgram.companyName},`}
+            {`Company: ${props.program.ownerOfProgram[0].companyName},`}
           </span>
           <div className={classes.descriptionItem}>
-            {`Program type: ${props.program.programType}, `}
+            {`Program type: Internship, `}
           </div>
           <span className={classes.descriptionItem}>
             {`Paid: ${props.program.paid} `}
@@ -35,7 +35,7 @@ function ProgramCard(props: Props) {
             {`Related fields: `}
             {props.program.relatedField.map((field: String, index: number) => {
               return (
-                <span style={{ marginLeft: "5px" }}>
+                <span style={{ marginLeft: "5px" }} key={index}>
                   {index + 1 !== props.program.relatedField.length
                     ? `${field},`
                     : `${field}`}

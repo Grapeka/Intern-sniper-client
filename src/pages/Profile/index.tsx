@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom'
 import Student from "../../interfaces/Student";
 import Company from "../../interfaces/Company";
 import classes from './index.module.scss'
@@ -15,12 +15,10 @@ interface Props {
 
 interface studentProps {
   student: Student
-  userId: string
 }
 
 interface companyProps {
   company: Company
-  userId: string
 }
 
 function StudentProfile(props: studentProps) {
@@ -44,16 +42,16 @@ function StudentProfile(props: studentProps) {
         {props.student.mediaLink.map(link => {
           switch (link.type) {
             case '0': {
-              return <MediaLink type='linkedin' url={link.url} />
+              return <MediaLink key={0} type='linkedin' url={link.url} />
             }
             case '1': {
-              return <MediaLink type='github' url={link.url} />
+              return <MediaLink key={1} type='github' url={link.url} />
             }
             case '2': {
-              return <MediaLink type='facebook' url={link.url} />
+              return <MediaLink key={2} type='facebook' url={link.url} />
             }
             case '3': {
-              return <MediaLink type='personalWeb' url={link.url} />
+              return <MediaLink key={3} type='personalWeb' url={link.url} />
             }
             default: {
               return <></>
@@ -113,13 +111,11 @@ function Profile(props: Props) {
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
 
-  if(id == null) return <></>
-  
   useEffect(() => {
-    fetch(import.meta.env.VITE_BACKEND_URL + `/users/${id}`, {
+    fetch(import.meta.env.VITE_BACKEND_URL + '/users/' + id, {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     })
       .then(res => res.json())
@@ -134,8 +130,8 @@ function Profile(props: Props) {
   return (
     <AppPage user={props.user}>
       {profile?.role == 'Student'
-        ? <StudentProfile student={profile as Student} userId={id} /> 
-        : <CompanyProfile company={profile as Company} userId={id} />
+        ? <StudentProfile student={profile as Student} /> 
+        : <CompanyProfile company={profile as Company} />
       }
     </AppPage>
   );

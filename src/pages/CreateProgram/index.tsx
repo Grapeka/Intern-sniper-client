@@ -10,6 +10,7 @@ import {
   RiCheckboxBlankCircleLine,
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
+import FormInput from "../../components/FormInput";
 
 function CreateProgram() {
   const context = useContext(AuthContext);
@@ -88,7 +89,7 @@ function CreateProgram() {
         <div className={classes.container}>
           <div className={classes.head}>Create Program</div>
           <div className={classes.form}>
-            <div className={classes.group}>
+            {/* <div className={classes.group}>
               <div className={classes.title}>Program Name</div>
               <input
                 className={classes.input}
@@ -97,19 +98,22 @@ function CreateProgram() {
                   setName(e.target.value);
                 }}
               />
-            </div>
-            <div className={classes.group}>
-              <div className={classes.title}>Type</div>
-              <select>
-                <option
-                  value="Internship"
-                  onClick={() => {
-                    setType("INTERN");
-                  }}
-                >
-                  Internship
-                </option>
-              </select>
+            </div> */}
+            <div className={classes.twoColumn}>
+              <FormInput title="Program Name" type="text" variant="outlined" />
+              <div className={classes.group}>
+                <div className={classes.title}>Type</div>
+                <select className={classes.select}>
+                  <option
+                    value="Internship"
+                    onClick={() => {
+                      setType("INTERN");
+                    }}
+                  >
+                    Internship
+                  </option>
+                </select>
+              </div>
             </div>
 
             <div className={classes.group}>
@@ -149,7 +153,12 @@ function CreateProgram() {
               {timeline.map((item, index) => {
                 return (
                   <div className={classes.timeline} key={index}>
-                    <div className={classes.lable}>Event name</div>
+                    <FormInput title="Event Name" type="text" variant="outlined" />
+                    <div className={classes.twoColumn}>
+                      <FormInput title="Start Date" type="date" variant="outlined" />
+                      <FormInput title="End Date" type="date" variant="outlined" />
+                    </div>
+                    {/* <div className={classes.lable}>Event name</div>
                     <input
                       className={classes.input}
                       type="text"
@@ -159,8 +168,8 @@ function CreateProgram() {
                           return prev;
                         });
                       }}
-                    />
-                    <div className={classes.label}>Start Date</div>
+                    /> */}
+                    {/* <div className={classes.label}>Start Date</div>
                     <input
                       className={classes.input}
                       type="date"
@@ -170,8 +179,8 @@ function CreateProgram() {
                           return prev;
                         });
                       }}
-                    />
-                    <div className={classes.label}>End Date</div>
+                    /> */}
+                    {/* <div className={classes.label}>End Date</div>
                     <input
                       className={classes.input}
                       type="date"
@@ -181,14 +190,14 @@ function CreateProgram() {
                           return prev;
                         });
                       }}
-                    />
+                    /> */}
                   </div>
                 );
               })}
 
               <div className={classes.manipulator}>
                 <div
-                  className={classes.manipulatorItem}
+                  className={classes.addItem}
                   onClick={() => {
                     setTimeline([
                       ...timeline,
@@ -206,7 +215,7 @@ function CreateProgram() {
 
                 {timeline.length > 1 ? (
                   <div
-                    className={classes.manipulatorItem}
+                    className={classes.deleteItem}
                     onClick={() => {
                       setTimeline(timeline.slice(0, -1));
                     }}
@@ -217,7 +226,8 @@ function CreateProgram() {
               </div>
             </div>
 
-            <div className={classes.group}>
+            <FormInput title="Program Link" type="text" variant="outlined" />
+            {/* <div className={classes.group}>
               <div className={classes.title}>Program Link</div>
               <input
                 className={classes.input}
@@ -226,7 +236,7 @@ function CreateProgram() {
                   setProgramUrl(e.target.value);
                 }}
               />
-            </div>
+            </div> */}
 
             <div className={classes.group}>
               <div className={classes.title}>Related fields</div>

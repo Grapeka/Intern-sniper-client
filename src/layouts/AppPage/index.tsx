@@ -7,7 +7,6 @@ import classes from "./index.module.scss";
 import { AuthContext } from "../../providers/authProvider";
 
 type Props = {
-  user: User;
   children: React.ReactNode;
 };
 

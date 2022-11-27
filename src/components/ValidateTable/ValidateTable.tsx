@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import updateItemInArray from "../../utils/updateIteminArray";
+import React, { useState, useEffect, useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/authProvider";
 
 const dummyCompany = [
   {
@@ -37,8 +37,24 @@ const dummyCompany = [
 
 function ValidateTable() {
   const [companies, setCompanies] = useState(dummyCompany);
+  const context = useContext(AuthContext);
+
+  useEffect(() => {
+    fetch(import.meta.env.VITE_BACKEND_URL + "/company", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCompanies(data);
+      });
+  }, []);
 
   const handleValidate = (company: any) => {
+    console.log("company", company);
+
     if (company.validateStatus === false) {
       Swal.fire({
         title: `Validate ${company.companyName}?`,
@@ -56,6 +72,22 @@ function ValidateTable() {
               newArray[index] = { ...company, validateStatus: true };
 
               // update db
+              fetch(
+                import.meta.env.VITE_BACKEND_URL + "/director/validate/company",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${context?.token}`,
+                  },
+                  body: JSON.stringify({
+                    companyId: company.userId,
+                    validateStatus: true,
+                    timestamp: new Date().getTime(),
+                    directorId: context?.auth?.userId,
+                  }),
+                }
+              );
 
               // updateState ui
               setCompanies((prev) => {

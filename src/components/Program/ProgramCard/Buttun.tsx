@@ -3,7 +3,6 @@ import React, { useState, useContext } from "react";
 import classes from "./button.module.scss";
 import { AuthContext } from "../../../providers/authProvider";
 import Program from "../../../types/Program";
-import { useNavigate } from "react-router-dom";
 import { GoPlus } from "react-icons/go";
 import { IoMdUndo } from "react-icons/io";
 import Swal from "sweetalert2";
@@ -14,14 +13,7 @@ type Props = {
 };
 
 function Buttun(props: Props) {
-  const navigate = useNavigate();
   const context = useContext(AuthContext);
-
-  // const userId = context?.auth?.userId;
-
-  // console.log("context?.auth", context?.auth);
-  // console.log("button", props.program._id);
-
   const handleFavorite = () => {
     props.setProgram({
       ...props.program,
@@ -30,15 +22,6 @@ function Buttun(props: Props) {
         context?.auth?.userId,
       ],
     });
-
-    console.log(
-      "Program",
-      props.program._id,
-      "User",
-      context?.auth?.userId,
-      "token",
-      context?.token
-    );
 
     fetch(
       import.meta.env.VITE_BACKEND_URL +
@@ -97,12 +80,18 @@ function Buttun(props: Props) {
       icon: "warning",
       title: "Oops...",
       text: `${alertText}`,
-      footer: `<a style={{testDecoration: "none"}} href='${""}'>Go to login page</a>`,
+      footer: `<a style={{testDecoration: "none"}} href='${
+        import.meta.env.VITE_FRONTEND_URL + "/login"
+      }'>Go to login page</a>`,
     });
   };
 
   // check user
-  if (context?.auth?.userId !== null && context?.auth?.userId !== undefined) {
+  if (
+    context?.auth?.userId !== null &&
+    context?.auth?.userId !== undefined &&
+    context?.auth?.role === "Student"
+  ) {
     // alert(context.auth.userId);
     if (!props.program.favoriteStudents.includes(context.auth.userId)) {
       return (

@@ -22,7 +22,7 @@ function ImageShow(props: Props) {
           src={
             props.images[0] === undefined
               ? "https://media.glassdoor.com/l/74/3f/ec/bd/office.jpg"
-              : props.images[0].toString()
+              : import.meta.env.VITE_BACKEND_URL + "/image/" + props.images[0]
           }
         ></img>
       </div>

@@ -6,6 +6,7 @@ import Validate from "./pages/Validate";
 import Favorite from "./pages/Favorite";
 import Popular from "./pages/Popular";
 import Home from "./pages/Home";
+import Transaction from "./pages/Transaction";
 import CreateProgram from "./pages/CreateProgram";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/popular" element={<Popular />} />
           <Route path="/create-program" element={<CreateProgram />} />
           <Route path="/validate" element={<Validate />} />
+          <Route path="/transaction" element={<Transaction />} />
         </Routes>
       </AuthContext.Provider>
     </div>

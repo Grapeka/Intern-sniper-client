@@ -32,6 +32,13 @@ function CreateProgram() {
   const [image, setImage] = useState<any>("");
   const [programUrl, setProgramUrl] = useState("");
 
+  const handleTimeline = (value: string, index: number) => {
+    setTimeline((prev) => {
+      prev[index].eventName = value
+      return prev;
+    });
+  }
+
   const handleCreateProgram = async () => {
     const filename = await uploadImage(image);
 
@@ -100,7 +107,7 @@ function CreateProgram() {
               />
             </div> */}
             <div className={classes.twoColumn}>
-              <FormInput title="Program Name" type="text" variant="outlined" />
+              <FormInput title="Program Name" type="text" variant="outlined" setState={setName} />
               <div className={classes.group}>
                 <div className={classes.title}>Type</div>
                 <select className={classes.select}>
@@ -153,10 +160,25 @@ function CreateProgram() {
               {timeline.map((item, index) => {
                 return (
                   <div className={classes.timeline} key={index}>
-                    <FormInput title="Event Name" type="text" variant="outlined" />
+                    <FormInput title="Event Name" type="text" variant="outlined" setTimeline={(value: string) => {
+                        setTimeline((prev) => {
+                          prev[index].eventName = value
+                          return prev;
+                        });
+                    }} />
                     <div className={classes.twoColumn}>
-                      <FormInput title="Start Date" type="date" variant="outlined" />
-                      <FormInput title="End Date" type="date" variant="outlined" />
+                      <FormInput title="Start Date" type="date" variant="outlined" setTimeline={(value: string) => {
+                        setTimeline((prev) => {
+                          prev[index].startDate = value
+                          return prev;
+                        });
+                    }}/>
+                      <FormInput title="End Date" type="date" variant="outlined" setTimeline={(value: string) => {
+                        setTimeline((prev) => {
+                          prev[index].endDate = value
+                          return prev;
+                        });
+                    }}/>
                     </div>
                     {/* <div className={classes.lable}>Event name</div>
                     <input
@@ -226,7 +248,7 @@ function CreateProgram() {
               </div>
             </div>
 
-            <FormInput title="Program Link" type="text" variant="outlined" />
+            <FormInput title="Program Link" type="text" variant="outlined" setState={setProgramUrl} />
             {/* <div className={classes.group}>
               <div className={classes.title}>Program Link</div>
               <input

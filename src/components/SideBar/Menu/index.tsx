@@ -49,22 +49,13 @@ type Props = {
 };
 
 function Menu(props: Props) {
-  const [focusIndex, setFocusIndex] = useState("Home");
-
   if (props.user !== null) {
     switch (props.user.role) {
       case "Student": {
         return (
           <div className={classes.container}>
             {studentMenu.map((item, index) => {
-              return (
-                <MenuItem
-                  item={item}
-                  key={index}
-                  focusIndex={focusIndex}
-                  setFocusIndex={setFocusIndex}
-                />
-              );
+              return <MenuItem item={item} key={index} />;
             })}
           </div>
         );
@@ -73,14 +64,7 @@ function Menu(props: Props) {
         return (
           <div className={classes.container}>
             {companyMenu.map((item, index) => {
-              return (
-                <MenuItem
-                  item={item}
-                  key={index}
-                  focusIndex={focusIndex}
-                  setFocusIndex={setFocusIndex}
-                />
-              );
+              return <MenuItem item={item} key={index} />;
             })}
           </div>
         );
@@ -89,14 +73,7 @@ function Menu(props: Props) {
         return (
           <div className={classes.container}>
             {directorMenu.map((item, index) => {
-              return (
-                <MenuItem
-                  item={item}
-                  key={index}
-                  focusIndex={focusIndex}
-                  setFocusIndex={setFocusIndex}
-                />
-              );
+              return <MenuItem item={item} key={index} />;
             })}
           </div>
         );
@@ -106,14 +83,7 @@ function Menu(props: Props) {
         return (
           <div className={classes.container}>
             {visitorMenu.map((item, index) => {
-              return (
-                <MenuItem
-                  item={item}
-                  key={index}
-                  focusIndex={focusIndex}
-                  setFocusIndex={setFocusIndex}
-                />
-              );
+              return <MenuItem item={item} key={index} />;
             })}
           </div>
         );
@@ -123,14 +93,7 @@ function Menu(props: Props) {
   return (
     <div className={classes.container}>
       {visitorMenu.map((item, index) => {
-        return (
-          <MenuItem
-            item={item}
-            key={index}
-            focusIndex={focusIndex}
-            setFocusIndex={setFocusIndex}
-          />
-        );
+        return <MenuItem item={item} key={index} />;
       })}
     </div>
   );

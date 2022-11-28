@@ -1,6 +1,6 @@
 import { ClassNames } from "@emotion/react";
 import classes from "./menuItem.module.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 interface item {
   name: string;
@@ -10,30 +10,29 @@ interface item {
 
 type Props = {
   item: item;
-  focusIndex: string;
-  setFocusIndex: React.Dispatch<React.SetStateAction<string>>;
 };
 
 function MenuItem(props: Props) {
   const defaultStyle = `${classes.item} ${classes.default}`;
   const focusStyle = `${classes.item} ${classes.active}`;
+
+  console.log("bro");
+  console.log(
+    window.location.href,
+    import.meta.env.VITE_FRONTEND_URL + props.item.link
+  );
+
   const navigate = useNavigate();
 
   return (
     <div
       className={
-        props.focusIndex === props.item.name ? focusStyle : defaultStyle
+        window.location.href ===
+        import.meta.env.VITE_FRONTEND_URL + props.item.link
+          ? focusStyle
+          : defaultStyle
       }
       onClick={() => {
-        props.setFocusIndex(props.item.name);
-
-        console.log(
-          "props.item.name",
-          props.item.name,
-          "props.focusIndex",
-          props.focusIndex
-        );
-
         navigate(props.item.link);
       }}
     >

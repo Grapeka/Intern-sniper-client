@@ -11,6 +11,7 @@ import {
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
 import FormInput from "../../components/FormInput";
+import {useNavigate} from "react-router-dom";
 
 function CreateProgram() {
   const context = useContext(AuthContext);
@@ -31,6 +32,7 @@ function CreateProgram() {
   const [fields, setFields] = useState<any[]>([]);
   const [image, setImage] = useState<any>("");
   const [programUrl, setProgramUrl] = useState("");
+  const navigate = useNavigate()
 
   const handleTimeline = (value: string, index: number) => {
     setTimeline((prev) => {
@@ -86,6 +88,8 @@ function CreateProgram() {
             title: "Oops...",
             text: `You need to wait the director validate your company before creating a program`,
           });
+
+          navigate('..')
         }
       });
   }, []);

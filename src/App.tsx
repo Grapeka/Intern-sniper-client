@@ -13,6 +13,7 @@ import "./App.css";
 import useAuth from "./hooks/useAuth";
 import { AuthContext } from "./providers/authProvider";
 import Logout from "./pages/Logout";
+import MyProgram from "./pages/MyProgram";
 
 function App() {
   const [auth, token, setToken] = useAuth();
@@ -29,6 +30,7 @@ function App() {
           <Route path="/profile/:id" element={<Profile user={auth} />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/popular" element={<Popular />} />
+          <Route path="/myProgram" element={<MyProgram />} />
           <Route path="/create-program" element={<CreateProgram />} />
           <Route path="/validate" element={<Validate />} />
           <Route path="/transaction" element={<Transaction />} />

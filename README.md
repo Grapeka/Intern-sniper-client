@@ -14,3 +14,4 @@ yarn install
 ```sh
  yarn run dev
 ```
+then access to http://localhost:5173

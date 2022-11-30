@@ -17,15 +17,21 @@ function UserTitle(props: Props) {
     switch (props.user.role) {
       case "Student": {
         const student = props.user as Student;
+
         return (
           <div className={classes.container}>
             <div>{student.firstName}</div>
             <Avatar
               size="sm"
               border
-              imageUrl={`${import.meta.env.BASE_URL}/image/${
-                student.profilePicture
-              }`}
+              imageUrl={
+                student.profilePicture !== null && student.profilePicture !== ""
+                  ? import.meta.env.VITE_BACKEND_URL +
+                    "/image/" +
+                    student.profilePicture
+                  : import.meta.env.VITE_BACKEND_URL +
+                    "/image/1669796838068-name-defaultsuer.jpeg"
+              }
             />
           </div>
         );
@@ -38,9 +44,14 @@ function UserTitle(props: Props) {
             <Avatar
               size="sm"
               border
-              imageUrl={`${import.meta.env.BASE_URL}/image/${
-                company.profilePicture
-              }`}
+              imageUrl={
+                company.profilePicture !== null && company.profilePicture !== ""
+                  ? import.meta.env.VITE_BACKEND_URL +
+                    "/image/" +
+                    company.profilePicture
+                  : import.meta.env.VITE_BACKEND_URL +
+                    "/image/1669796838068-name-defaultsuer.jpeg"
+              }
             />
           </div>
         );
@@ -53,7 +64,10 @@ function UserTitle(props: Props) {
             <Avatar
               size="sm"
               border
-              imageUrl={`${import.meta.env.BASE_URL}/image/director.png`}
+              imageUrl={
+                import.meta.env.VITE_BACKEND_URL +
+                "/image/1669796838068-name-defaultsuer.jpeg"
+              }
             />
           </div>
         );
@@ -65,7 +79,10 @@ function UserTitle(props: Props) {
             <Avatar
               size="sm"
               border
-              imageUrl={`${import.meta.env.BASE_URL}/image/visitor.png`}
+              imageUrl={
+                import.meta.env.VITE_BACKEND_URL +
+                "/image/1669796838068-name-defaultsuer.jpeg"
+              }
             />
           </div>
         );
@@ -78,7 +95,10 @@ function UserTitle(props: Props) {
       <Avatar
         size="sm"
         border
-        imageUrl={`${import.meta.env.BASE_URL}/image/visitor.png`}
+        imageUrl={
+          import.meta.env.VITE_BACKEND_URL +
+          "/image/1669796838068-name-defaultsuer.jpeg"
+        }
       />
     </div>
   );

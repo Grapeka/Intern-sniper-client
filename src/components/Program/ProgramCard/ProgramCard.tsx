@@ -46,7 +46,10 @@ function ProgramCard(props: Props) {
         </div>
       </div>
       <div className={classes.bottomSection}>
-        <ImageShow images={props.program.programPicture} />
+        <ImageShow
+          link={props.program.programWebsite}
+          images={props.program.programPicture}
+        />
       </div>
     </div>
   );

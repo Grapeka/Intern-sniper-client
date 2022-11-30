@@ -5,13 +5,18 @@ import { AiOutlineLink } from "react-icons/ai";
 
 type Props = {
   images: String[];
+  link: String;
 };
 
 function ImageShow(props: Props) {
   return (
     <div className={classes.container}>
       <div className={classes.imgBox}>
-        <a className={classes.overlay} href={""}>
+        <a
+          className={classes.overlay}
+          target="_blank"
+          href={props.link.toString()}
+        >
           <div className={classes.link}>
             <AiOutlineLink />
             website
@@ -20,8 +25,12 @@ function ImageShow(props: Props) {
         <img
           className={classes.img}
           src={
-            props.images[0] === undefined
-              ? "https://media.glassdoor.com/l/74/3f/ec/bd/office.jpg"
+            props.images[0] === undefined ||
+            props.images === null ||
+            props.images[0] === ""
+              ? import.meta.env.VITE_BACKEND_URL +
+                "/image/" +
+                "1669797336739-name-programdefault.jpeg"
               : import.meta.env.VITE_BACKEND_URL + "/image/" + props.images[0]
           }
         ></img>

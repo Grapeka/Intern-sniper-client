@@ -30,7 +30,7 @@ function ImageShow(props: Props) {
             props.images[0] === ""
               ? import.meta.env.VITE_BACKEND_URL +
                 "/image/" +
-                "1669797336739-name-programdefault.jpeg"
+                "1669888857907-name-programdefault.jpeg"
               : import.meta.env.VITE_BACKEND_URL + "/image/" + props.images[0]
           }
         ></img>

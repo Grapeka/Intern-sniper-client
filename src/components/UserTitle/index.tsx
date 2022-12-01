@@ -30,7 +30,7 @@ function UserTitle(props: Props) {
                     "/image/" +
                     student.profilePicture
                   : import.meta.env.VITE_BACKEND_URL +
-                    "/image/1669796838068-name-defaultsuer.jpeg"
+                    "/image/1669888950843-name-defaultsuer.jpeg"
               }
             />
           </div>
@@ -50,7 +50,7 @@ function UserTitle(props: Props) {
                     "/image/" +
                     company.profilePicture
                   : import.meta.env.VITE_BACKEND_URL +
-                    "/image/1669796838068-name-defaultsuer.jpeg"
+                    "/image/1669888950843-name-defaultsuer.jpeg"
               }
             />
           </div>
@@ -66,7 +66,7 @@ function UserTitle(props: Props) {
               border
               imageUrl={
                 import.meta.env.VITE_BACKEND_URL +
-                "/image/1669796838068-name-defaultsuer.jpeg"
+                "/image/1669888950843-name-defaultsuer.jpeg"
               }
             />
           </div>
@@ -81,7 +81,7 @@ function UserTitle(props: Props) {
               border
               imageUrl={
                 import.meta.env.VITE_BACKEND_URL +
-                "/image/1669796838068-name-defaultsuer.jpeg"
+                "/image/1669888950843-name-defaultsuer.jpeg"
               }
             />
           </div>
@@ -97,7 +97,7 @@ function UserTitle(props: Props) {
         border
         imageUrl={
           import.meta.env.VITE_BACKEND_URL +
-          "/image/1669796838068-name-defaultsuer.jpeg"
+          "/image/1669888950843-name-defaultsuer.jpeg"
         }
       />
     </div>

@@ -6,11 +6,11 @@ import ProgramCard from "./ProgramCard/ProgramCard";
 import Timeline from "./Timeline";
 
 type Props = {
-  pg: any;
+  pg: ProgramType;
 };
 
 function Program(props: Props) {
-  const [program, setProgram] = useState<any>(props.pg);
+  const [program, setProgram] = useState<ProgramType>(props.pg);
 
   return (
     <div className={classes.container}>

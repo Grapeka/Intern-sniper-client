@@ -15,7 +15,7 @@ function Timeline(props: Props) {
           <div className={classes.title}>Timeline</div>
         </div>
         <div className={classes.bottom}>
-          {props.timeline.map((item: any, index: number) => {
+          {props.timeline.map((item: TimelineType, index: number) => {
             return (
               <div className={classes.item} key={index}>
                 <div className={classes.description}>

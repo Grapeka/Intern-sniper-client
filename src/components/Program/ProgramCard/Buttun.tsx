@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 type Props = {
   program: Program;
-  setProgram: any;
+  setProgram: React.Dispatch<any>;
 };
 
 function Buttun(props: Props) {

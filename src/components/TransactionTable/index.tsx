@@ -3,6 +3,12 @@ import { AuthContext } from "../../providers/authProvider";
 import Director from "../../interfaces/Director";
 import ApprovalTx from "../../interfaces/ApprovalTx";
 
+interface transactionType {
+  company: string;
+  approval: boolean;
+  timestamp: string;
+}
+
 function TransactionTable() {
   const context = useContext(AuthContext);
   const [director, setDirector] = useState<any | null>(null);
@@ -23,28 +29,6 @@ function TransactionTable() {
       });
   }, []);
 
-  const content = (d: any) => {
-    if (d.transactions !== null) {
-      d?.transactions.map((tx: any, index: number) => {
-        return (
-          <tr
-            key={index}
-            className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-          >
-            <th
-              scope="row"
-              className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              {tx.company}
-            </th>
-            <td className="py-4 px-6">{tx.approval}</td>
-            <td className="py-4 px-6">{tx.timestamp}</td>
-          </tr>
-        );
-      });
-    }
-  };
-
   return (
     <div className="w-9/12 overflow-x-auto relative shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -64,7 +48,7 @@ function TransactionTable() {
         <tbody>
           {director === null
             ? null
-            : director.transactions.map((tx: any) => {
+            : director.transactions.map((tx: transactionType) => {
                 return (
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th

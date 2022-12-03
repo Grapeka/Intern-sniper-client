@@ -5,7 +5,7 @@ import classes from "./index.module.scss";
 import Menu from "./Menu";
 
 type Props = {
-  user: any;
+  user: User;
 };
 
 function Sidebar(props: Props) {

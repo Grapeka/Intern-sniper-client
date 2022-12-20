@@ -26,7 +26,7 @@ function Buttun(props: Props) {
     fetch(
       import.meta.env.VITE_BACKEND_URL +
         "/programs/favorite/" +
-        props.program._id,
+        props.program.programId,
       {
         method: "POST",
         headers: {
@@ -53,7 +53,7 @@ function Buttun(props: Props) {
     fetch(
       import.meta.env.VITE_BACKEND_URL +
         "/programs/favorite/" +
-        props.program._id,
+        props.program.programId,
       {
         method: "POST",
         headers: {

@@ -1,12 +1,10 @@
-import Location from "./Location";
-import User from "./User";
+import User from './User';
 
 interface Company extends User {
   companyName: string;
   issuedProgram: string[] | null;
   phoneNumber: string;
-  province: string
-  country: string
+  location: { country: string; province: string };
   validateStatus: boolean;
 }
 

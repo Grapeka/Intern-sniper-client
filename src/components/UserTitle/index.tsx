@@ -1,12 +1,10 @@
-import React from "react";
+import User from '../../types/User';
+import classes from './index.module.scss';
+import Student from '../../interfaces/Student';
+import Company from '../../interfaces/Company';
+import Director from '../../interfaces/Director';
 
-import User from "../../types/User";
-import classes from "./index.module.scss";
-import Student from "../../interfaces/Student";
-import Company from "../../interfaces/Company";
-import Director from "../../interfaces/Director";
-
-import Avatar from "../Avatar";
+import Avatar from '../Avatar';
 
 type Props = {
   user: User;
@@ -15,7 +13,7 @@ type Props = {
 function UserTitle(props: Props) {
   if (props.user) {
     switch (props.user.role) {
-      case "Student": {
+      case 'Student': {
         const student = props.user as Student;
 
         return (
@@ -25,18 +23,18 @@ function UserTitle(props: Props) {
               size="sm"
               border
               imageUrl={
-                student.profilePicture !== null && student.profilePicture !== ""
+                student.profilePicture !== null && student.profilePicture !== ''
                   ? import.meta.env.VITE_BACKEND_URL +
-                    "/image/" +
+                    '/image/' +
                     student.profilePicture
                   : import.meta.env.VITE_BACKEND_URL +
-                    "/image/1669888950843-name-defaultsuer.jpeg"
+                    '/image/1669189098836-name-messi7.png'
               }
             />
           </div>
         );
       }
-      case "Company": {
+      case 'Company': {
         const company = props.user as Company;
         return (
           <div className={classes.container}>
@@ -45,18 +43,18 @@ function UserTitle(props: Props) {
               size="sm"
               border
               imageUrl={
-                company.profilePicture !== null && company.profilePicture !== ""
+                company.profilePicture !== null && company.profilePicture !== ''
                   ? import.meta.env.VITE_BACKEND_URL +
-                    "/image/" +
+                    '/image/' +
                     company.profilePicture
                   : import.meta.env.VITE_BACKEND_URL +
-                    "/image/1669888950843-name-defaultsuer.jpeg"
+                    '/image/1669189098836-name-messi7.png'
               }
             />
           </div>
         );
       }
-      case "Director": {
+      case 'Director': {
         const director = props.user as Director;
         return (
           <div className={classes.container}>
@@ -66,7 +64,7 @@ function UserTitle(props: Props) {
               border
               imageUrl={
                 import.meta.env.VITE_BACKEND_URL +
-                "/image/1669888950843-name-defaultsuer.jpeg"
+                '/image/1669189098836-name-messi7.png'
               }
             />
           </div>
@@ -81,7 +79,7 @@ function UserTitle(props: Props) {
               border
               imageUrl={
                 import.meta.env.VITE_BACKEND_URL +
-                "/image/1669888950843-name-defaultsuer.jpeg"
+                '/image/1669189098836-name-messi7.png'
               }
             />
           </div>
@@ -97,7 +95,7 @@ function UserTitle(props: Props) {
         border
         imageUrl={
           import.meta.env.VITE_BACKEND_URL +
-          "/image/1669888950843-name-defaultsuer.jpeg"
+          '/image/1669189098836-name-messi7.png'
         }
       />
     </div>

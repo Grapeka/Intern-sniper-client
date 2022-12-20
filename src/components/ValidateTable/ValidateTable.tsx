@@ -1,36 +1,36 @@
-import React, { useState, useEffect, useContext } from "react";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../providers/authProvider";
+import React, { useState, useEffect, useContext } from 'react';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/authProvider';
 
 const dummyCompany = [
   {
-    companyName: "Company 1",
-    email: "broo.test@acc.com",
-    phoneNumber: "1234567890",
+    companyName: 'Company 1',
+    email: 'broo.test@acc.com',
+    phoneNumber: '1234567890',
     validateStatus: false,
   },
   {
-    companyName: "Company 2",
-    email: "sisss.test@acc.com",
-    phoneNumber: "1234567890",
+    companyName: 'Company 2',
+    email: 'sisss.test@acc.com',
+    phoneNumber: '1234567890',
     validateStatus: false,
   },
   {
-    companyName: "Company 3",
-    email: "sisss.test@acc.com",
-    phoneNumber: "1234567890",
+    companyName: 'Company 3',
+    email: 'sisss.test@acc.com',
+    phoneNumber: '1234567890',
     validateStatus: false,
   },
   {
-    companyName: "Company 4",
-    email: "sisss.test@acc.com",
-    phoneNumber: "1234567890",
+    companyName: 'Company 4',
+    email: 'sisss.test@acc.com',
+    phoneNumber: '1234567890',
     validateStatus: false,
   },
   {
-    companyName: "Company 5",
-    email: "sisss.test@acc.com",
-    phoneNumber: "1234567890",
+    companyName: 'Company 5',
+    email: 'sisss.test@acc.com',
+    phoneNumber: '1234567890',
     validateStatus: false,
   },
 ];
@@ -40,10 +40,10 @@ function ValidateTable() {
   const context = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_BACKEND_URL + "/company", {
-      method: "GET",
+    fetch(import.meta.env.VITE_BACKEND_URL + '/company', {
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     })
       .then((res) => res.json())
@@ -53,17 +53,15 @@ function ValidateTable() {
   }, []);
 
   const handleValidate = (company: any) => {
-    console.log("company", company);
-
     if (company.validateStatus === false) {
       Swal.fire({
         title: `Validate ${company.companyName}?`,
         text: `${company.companyName} will be able to create program on website`,
-        icon: "warning",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: "#8266cd",
-        cancelButtonColor: "#c9cdd6",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonColor: '#8266cd',
+        cancelButtonColor: '#c9cdd6',
+        confirmButtonText: 'Yes, delete it!',
       }).then((result) => {
         if (result.isConfirmed) {
           let newArray = companies;
@@ -73,11 +71,11 @@ function ValidateTable() {
 
               // update db
               fetch(
-                import.meta.env.VITE_BACKEND_URL + "/director/validate/company",
+                import.meta.env.VITE_BACKEND_URL + '/director/validate/company',
                 {
-                  method: "POST",
+                  method: 'POST',
                   headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                     Authorization: `Bearer ${context?.token}`,
                   },
                   body: JSON.stringify({
@@ -100,9 +98,9 @@ function ValidateTable() {
           // success
           Swal.fire({
             text: `${company.companyName} is validated`,
-            icon: "success",
-            confirmButtonColor: "#8266cd",
-            confirmButtonText: "Okay",
+            icon: 'success',
+            confirmButtonColor: '#8266cd',
+            confirmButtonText: 'Okay',
           });
         }
       });
@@ -144,11 +142,12 @@ function ValidateTable() {
                 <td className="py-4 px-6">{company.phoneNumber}</td>
                 <td className="py-4 px-6">{company.email}</td>
                 <td className="py-4 px-6">
-                  {!company.validateStatus ? "pending" : "validated"}
+                  {!company.validateStatus ? 'pending' : 'validated'}
                 </td>
                 <td className="py-4 px-6">
                   <div
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    className="font-medium text-blue-600 dark:text-blue-500 cursor-pointer
+                    hover:text-purple-600"
                     onClick={() => {
                       handleValidate(company);
                     }}

@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import User from "../../types/User";
-import UserTitle from "../UserTitle";
-import Timeline from "../../interfaces/Timeline";
-import classes from "./index.module.scss";
+import User from '../../types/User';
+import UserTitle from '../UserTitle';
+import classes from './index.module.scss';
 
-import { FiMinusCircle } from "react-icons/fi";
+import { FiMinusCircle } from 'react-icons/fi';
 
 type Props = {
   user: User;

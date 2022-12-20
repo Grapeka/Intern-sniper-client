@@ -1,0 +1,93 @@
+.container {
+  margin-top: 18px;
+  margin-left: 40px;
+  width: 100%;
+}
+
+.container .imgBox {
+  width: 75%;
+  height: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.container .imgBox .img {
+  width: 100%;
+  height: 88%;
+  border-radius: 2%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.container .imgBox .overlay {
+  text-decoration: none;
+  position: absolute;
+  bottom: 28px;
+  opacity: 0;
+  border-radius: 2%;
+}
+
+.container .imgBox:hover .img {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.container .imgBox:hover .overlay {
+  text-decoration: none;
+  position: absolute;
+  height: 50px;
+  bottom: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border-radius: 2%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.6;
+  z-index: 1;
+  background-color: #c3c6ce;
+}
+
+.container .imgBox:hover .overlay:hover {
+  cursor: pointer;
+}
+
+.container .imgBox:hover .overlay .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c2c2c;
+}
+/*# sourceMappingURL=imageShow.module.css.map */

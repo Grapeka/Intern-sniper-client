@@ -1,0 +1,57 @@
+.container {
+  right: 6px;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.container .button {
+  background-color: #8266cd;
+  width: 48px;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20%;
+  -webkit-box-shadow: rgba(130, 102, 205, 0.2) 0px 20px 30px;
+          box-shadow: rgba(130, 102, 205, 0.2) 0px 20px 30px;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.container .button:hover {
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  cursor: pointer;
+  background-color: #8266cd;
+  opacity: 0.9;
+}
+
+.container .count {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #8266cd;
+}
+/*# sourceMappingURL=button.module.css.map */

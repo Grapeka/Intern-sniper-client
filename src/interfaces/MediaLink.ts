@@ -1,4 +1,3 @@
-
 interface MediaLink {
   url: string;
   type: string;

@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../providers/authProvider";
-import Director from "../../interfaces/Director";
-import ApprovalTx from "../../interfaces/ApprovalTx";
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../../providers/authProvider';
+import Director from '../../interfaces/Director';
 
 interface transactionType {
   company: string;
@@ -17,9 +16,9 @@ function TransactionTable() {
     fetch(
       `${import.meta.env.VITE_BACKEND_URL}/users/${context?.auth?.userId}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       }
     )

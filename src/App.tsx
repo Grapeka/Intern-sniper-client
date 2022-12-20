@@ -1,23 +1,21 @@
-import { useState } from "react";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
-import Validate from "./pages/Validate";
-import Favorite from "./pages/Favorite";
-import Popular from "./pages/Popular";
-import Home from "./pages/Home";
-import Transaction from "./pages/Transaction";
-import CreateProgram from "./pages/CreateProgram";
-import { Link, Route, Routes } from "react-router-dom";
-import "./App.css";
-import useAuth from "./hooks/useAuth";
-import { AuthContext } from "./providers/authProvider";
-import Logout from "./pages/Logout";
-import MyProgram from "./pages/MyProgram";
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Profile from './pages/Profile';
+import Validate from './pages/Validate';
+import Favorite from './pages/Favorite';
+import Popular from './pages/Popular';
+import Home from './pages/Home';
+import Transaction from './pages/Transaction';
+import CreateProgram from './pages/CreateProgram';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import useAuth from './hooks/useAuth';
+import { AuthContext } from './providers/authProvider';
+import Logout from './pages/Logout';
+import MyProgram from './pages/MyProgram';
 
 function App() {
   const [auth, token, setToken] = useAuth();
-  const [user, setUser] = useState(null);
 
   return (
     <div className="App">

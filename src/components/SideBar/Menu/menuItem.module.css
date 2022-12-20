@@ -1,0 +1,45 @@
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  width: 80%;
+  height: 55px;
+  border-radius: 12px;
+  font-weight: 500;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.item:hover {
+  cursor: pointer;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  color: #3a4866;
+}
+
+.item .icon {
+  margin-left: 10px;
+  font-size: 1.25rem;
+}
+
+.default {
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  color: #8c97ac;
+}
+
+.active {
+  color: #3a4866;
+  background-color: #f3f4f8;
+}
+/*# sourceMappingURL=menuItem.module.css.map */

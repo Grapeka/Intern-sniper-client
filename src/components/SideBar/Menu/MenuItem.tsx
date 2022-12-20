@@ -16,12 +16,6 @@ function MenuItem(props: Props) {
   const defaultStyle = `${classes.item} ${classes.default}`;
   const focusStyle = `${classes.item} ${classes.active}`;
 
-  console.log("bro");
-  console.log(
-    window.location.href,
-    import.meta.env.VITE_FRONTEND_URL + props.item.link
-  );
-
   const navigate = useNavigate();
 
   return (

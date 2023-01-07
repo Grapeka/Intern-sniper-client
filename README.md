@@ -41,7 +41,7 @@ Visitors
 
 # Technologies
 
-The following core technologies were used to develop the backend for this platform:
+The following core technologies were used to develop the this website:
 
 - React: React was used as the JavaScript library for building the user interface.
 - TypeScript: TypeScript was used as a typed superset of JavaScript to build the frontend codebase.

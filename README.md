@@ -1,6 +1,6 @@
 # Intern-sniper-client
 
-This repository contains the frontend code for the platform. The corresponding backend repository can be found at the following link: https://github.com/HealthyBrothers/Intern-sniper-server
+This repository contains the frontend code for the platform. The corresponding backend repository can be found at the following link: https://github.com/Grapeka/Intern-sniper-server
 
 The backend repository contains all of the necessary code to build and run the API for the platform. It is built using Node.js and is accessed by the frontend through API calls.
 
@@ -48,21 +48,26 @@ The following core technologies were used to develop the this website:
 - Tailwind CSS: Tailwind CSS was used as the CSS framework for styling the user interface.
 - SCSS: SCSS was used as a CSS preprocessor to write and maintain styles for the frontend.
 
-# Project setup
+## Getting Started
 
-## serve server localhost
-
-### installing dependencies
+To get started with the Intern-sniper-client, follow the steps below:
 
 ```sh
-cp .env.example .env
+# Clone the repository to your local machine
+git clone https://github.com/Grapeka/Intern-sniper-client.git
+
+# Install the dependencies
 yarn install
+
+# Copy the example environment file and update the values as necessary
+cp .env.example .env
+
+# Build the project
+yarn build
+
+# Start the server
+yarn dev
 ```
 
-### start server
+You can now access the application at http://127.0.0.1:5173/
 
-```sh
- yarn run dev
-```
-
-then access to http://127.0.0.1:5173/
